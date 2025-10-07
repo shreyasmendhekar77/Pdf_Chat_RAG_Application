@@ -1,0 +1,8 @@
+langchain
+langchain_community
+numpy 
+pandas
+faiss-cpu
+dotenv
+euriai
+streamlit
