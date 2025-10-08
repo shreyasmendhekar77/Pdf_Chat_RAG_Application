@@ -5,6 +5,8 @@ from utils.utils import generate_embeddings
 def build_prompt(context_chunks, query):
     context = "\n\n".join(context_chunks)
     return f"""Use the context below to answer the question.
+            If the context doesn't help, just say you don't know, don't try to make up an answer.
+            
 
             Context:
             {context}
