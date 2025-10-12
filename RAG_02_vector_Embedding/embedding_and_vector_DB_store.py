@@ -4,13 +4,17 @@ import faiss
 import os
 from dotenv import load_dotenv
 from utils.utils import generate_embeddings
+import streamlit as st
 
 # Load environment variables from .env file
 load_dotenv()
 
 
-api_key=os.getenv('euri_api_key')
+# api_key=os.getenv('euri_api_key')
 # api_key
+
+api_key=st.secrets.api_key
+
 
 def create_vector_DB(text_content):
     dimension = 1536
@@ -23,7 +27,7 @@ def create_vector_DB(text_content):
         index.add(np.array([emb]).astype("float32"))
         chunk_mapping.append(chunk)
     
-    faiss.write_index(index,"vector_database/index.faiss")
+    # faiss.write_index(index,"vector_database/index.faiss")
 
     return index,chunk_mapping
 

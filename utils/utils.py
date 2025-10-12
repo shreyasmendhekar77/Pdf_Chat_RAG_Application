@@ -1,13 +1,14 @@
 from euriai.langchain import create_chat_model
 import requests
 import numpy as np
-from dotenv import load_dotenv
-import os
+import streamlit as st
+# from dotenv import load_dotenv
+# import os
 # Load environment variables from .env file
-load_dotenv()
+# load_dotenv()
 
-
-api_key=os.getenv('euri_api_key')
+api_key=st.secrets.api_key
+# api_key=os.getenv('euri_api_key')
 
 def chat_model_fun():
     chat_model = create_chat_model(

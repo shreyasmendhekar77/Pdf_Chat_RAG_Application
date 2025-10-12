@@ -30,38 +30,38 @@ with st.sidebar:
     """)
 
 # ---------------- Load or Create .env ----------------
-dotenv_path = ".env"
-if not os.path.exists(dotenv_path):
-    with open(dotenv_path, "w") as f:
-        f.write("")  # create empty .env if not exists
+# dotenv_path = ".env"
+# if not os.path.exists(dotenv_path):
+#     with open(dotenv_path, "w") as f:
+#         f.write("")  # create empty .env if not exists
 
-load_dotenv(dotenv_path)
+# load_dotenv(dotenv_path)
 
 # ---------------- API Key Management ----------------
-st.subheader("🔐 Enter Your API Key")
+# st.subheader("🔐 Enter Your API Key")
 
-# Load existing key (if available)
-saved_key = os.getenv("euri_api_key", "")
+# # Load existing key (if available)
+# saved_key = os.getenv("euri_api_key", "")
 
-if "api_key" not in st.session_state:
-    st.session_state.api_key = saved_key
+# if "api_key" not in st.session_state:
+#     st.session_state.api_key = saved_key
 
-api_key_input = st.text_input(
-    "Enter your Euron or OpenAI-compatible API key:",
-    type="password",
-    placeholder="sk-xxxxxxxxxxxxxxxxxxxxxxxx",
-    value=st.session_state.api_key
-)
+# api_key_input = st.text_input(
+#     "Enter your Euron or OpenAI-compatible API key:",
+#     type="password",
+#     placeholder="sk-xxxxxxxxxxxxxxxxxxxxxxxx",
+#     value=st.session_state.api_key
+# )
 
-# Save the key to .env when entered
-if api_key_input:
-    st.session_state.api_key = api_key_input.strip()
-    set_key(dotenv_path, "euri_api_key", st.session_state.api_key)
-    os.environ["euri_api_key"] = st.session_state.api_key
-    st.success("✅ API key stored in .env and set successfully!")
-else:
-    st.warning("⚠️ Please enter your API key to continue.")
-    st.stop()  # Stop app execution until key is provided
+# # Save the key to .env when entered
+# if api_key_input:
+#     st.session_state.api_key = api_key_input.strip()
+#     set_key(dotenv_path, "euri_api_key", st.session_state.api_key)
+#     os.environ["euri_api_key"] = st.session_state.api_key
+#     st.success("✅ API key stored in .env and set successfully!")
+# else:
+#     st.warning("⚠️ Please enter your API key to continue.")
+#     st.stop()  # Stop app execution until key is provided
 
 # ---------------- Session State ----------------
 if "vector_db" not in st.session_state:
