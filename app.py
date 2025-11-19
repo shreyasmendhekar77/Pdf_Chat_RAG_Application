@@ -98,7 +98,7 @@ if uploaded_file:
     else:
         with st.spinner("⚙️ Creating FAISS vector database..."):
             vector_db, chunk_map = create_vector_DB(chunks)
-            # faiss.write_index(vector_db, index_path)
+            faiss.write_index(vector_db, index_path)
         st.success("✅ Vector database created and saved!")
 
     st.session_state.vector_db = vector_db
