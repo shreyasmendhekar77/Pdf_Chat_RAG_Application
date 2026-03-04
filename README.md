@@ -1,25 +1,163 @@
-📄 PDF Chat RAG ApplicationAn end-to-end Retrieval-Augmented Generation (RAG) application that allows users to upload PDF documents and engage in context-aware conversations with their data.This project leverages semantic search to bridge the gap between static documents and LLM intelligence, ensuring accurate, evidence-based answers.🚀 FeaturesPDF Processing: Seamlessly upload and extract text from complex PDF layouts.Intelligent Chunking: Automatic text splitting to maintain semantic coherence.Semantic Search: Uses high-dimensional vector embeddings for precise information retrieval.Dual Implementations: Includes both standard LangChain and agentic LangGraph workflows.Interactive UI: A clean, responsive chat interface built with Streamlit.Modular Design: Separated logic for data loading, embedding, and generation for easy scaling.🏗️ Project ArchitectureThe application follows a modular pipeline to transform raw PDF data into actionable insights:StageProcessDescription1. Data LoaderExtractionReads PDF content and cleans noise/metadata.2. Text SplittingChunkingBreaks text into manageable pieces for the LLM.3. EmbeddingVectorizationConverts chunks into numerical vectors using OpenAI/HuggingFace models.4. Vector DBStorageStores vectors (e.g., FAISS/ChromaDB) for fast similarity search.5. RetrieverSearchFinds the top-$k$ most relevant chunks based on a user's query.6. GeneratorLLM SynthesisPass context + query to the LLM to generate the final response.📁 Project StructureBashPdf_Chat_RAG_Application/
+📄 PDF Chat RAG Application
+
+A Retrieval-Augmented Generation (RAG) based application that allows users to upload PDF documents and interact with them through a conversational AI chatbot.
+
+This project extracts text from PDFs, converts it into embeddings, stores it in a vector database, and retrieves relevant content to generate accurate answers using an LLM.
+
+🚀 Features
+
+📂 Upload PDF documents
+
+✂️ Automatic text chunking
+
+🔎 Semantic search using vector embeddings
+
+🧠 Context-aware response generation
+
+💬 Interactive chat interface (Streamlit)
+
+🗂 Modular RAG pipeline structure
+
+🏗️ Project Architecture
+
+The project follows a modular RAG pipeline:
+
+Data Loader
+
+Extracts text from PDF
+
+Cleans and prepares text
+
+Text Splitting
+
+Splits document into smaller chunks
+
+Embedding Generation
+
+Converts text chunks into vector embeddings
+
+Vector Database
+
+Stores embeddings for fast similarity search
+
+Retriever
+
+Retrieves relevant chunks based on user query
+
+Generator (LLM)
+
+Generates final answer using retrieved context
+
+📁 Project Structure
+Pdf_Chat_RAG_Application/
 │
-├── app.py                          # Main Streamlit UI entry point
-├── requirements.txt                # Python dependencies
-├── README.md                       # Documentation
+├── app.py                          # Main Streamlit application
+├── requirements.txt                # Dependencies
+├── README.md                       # Project documentation
 │
-├── Langchain_Application/          # Sequential RAG implementation
-├── Langgraph_Application/          # Cyclic/Agentic RAG workflow
+├── Langchain_Application/          # LangChain-based RAG implementation
+├── Langgraph_Application/          # LangGraph-based workflow
 │
-├── RAG_01_Dataloader/              # Logic for PDF parsing
-├── RAG_02_vector_Embedding/        # Embedding generation & DB logic
-├── RAG_03_Augument_and_Generation/ # Prompt engineering & LLM calls
+├── RAG_01_Dataloader/              # PDF loading logic
+├── RAG_02_vector_Embedding/        # Embedding creation
+├── RAG_03_Augument_and_Generation/ # Retrieval + LLM response
 │
-├── vector_database/                # Local persistent vector storage
-└── utils/                          # Common helper functions
-⚙️ Installation & Setup1. Clone the repositoryBashgit clone https://github.com/shreyasmendhekar77/Pdf_Chat_RAG_Application.git
+├── vector_database/                # Stored vector embeddings
+└── utils/                          # Helper functions
+⚙️ Installation & Setup
+1️⃣ Clone the repository
+git clone https://github.com/shreyasmendhekar77/Pdf_Chat_RAG_Application.git
 cd Pdf_Chat_RAG_Application
-2. Create a Virtual EnvironmentWindows:Bashpython -m venv venv
+2️⃣ Create virtual environment (Recommended)
+python -m venv venv
+
+Activate it:
+
+Windows
+
 venv\Scripts\activate
-Mac/Linux:Bashpython3 -m venv venv
+
+Mac/Linux
+
 source venv/bin/activate
-3. Install DependenciesBashpip install -r requirements.txt
-4. Environment VariablesCreate a .env file in the root directory and add your API keys:Code snippetOPENAI_API_KEY=your_openai_api_key_here
-▶️ Running the ApplicationLaunch the Streamlit dashboard with the following command:Bashstreamlit run app.py
-Once running, access the local server at http://localhost:8501.🛠 Technologies UsedLanguage: Python 3.9+Orchestration: LangChain & LangGraphFrontend: StreamlitVector Store: FAISS / ChromaDBLLMs: OpenAI GPT-4o / Claude / Local LLMs (via Ollama)Embeddings: OpenAI text-embedding-3-small📌 Future Roadmap[ ] Support for multi-PDF uploads and cross-document querying.[ ] Integration with Pinecone or Weaviate for cloud-scale storage.[ ] Persistent chat history (memory) across sessions.[ ] Support for scanned PDFs via OCR (Tesseract/PaddleOCR).[ ] Containerization with Docker.📜 LicenseDistributed under the MIT License. See LICENSE for more information.
+3️⃣ Install dependencies
+pip install -r requirements.txt
+🔑 Environment Variables
+
+If your project uses OpenAI or any other LLM API, create a .env file:
+
+OPENAI_API_KEY=your_api_key_here
+
+Or export manually:
+
+export OPENAI_API_KEY=your_api_key_here
+
+(Windows PowerShell)
+
+setx OPENAI_API_KEY "your_api_key_here"
+▶️ Run the Application
+streamlit run app.py
+
+Then open the local URL shown in your terminal (usually http://localhost:8501).
+
+🧪 How It Works
+
+User uploads a PDF
+
+Text is extracted and split into chunks
+
+Chunks are converted into embeddings
+
+Embeddings are stored in a vector database
+
+User asks a question
+
+System retrieves relevant chunks
+
+LLM generates contextual answer
+
+🛠 Technologies Used
+
+Python
+
+Streamlit
+
+LangChain / LangGraph
+
+Vector Database (FAISS or similar)
+
+OpenAI / LLM API
+
+📌 Future Improvements
+
+Multi-PDF support
+
+Persistent vector storage
+
+Chat history memory
+
+Authentication system
+
+Deployment on cloud (Streamlit Cloud / Render / AWS)
+
+Docker support
+
+🎯 Use Cases
+
+Research paper Q&A
+
+Academic study assistant
+
+Legal document analysis
+
+Business report analysis
+
+Personal knowledge assistant
+
+🤝 Contributing
+
+Feel free to fork this repository and submit pull requests.
+
+📜 License
+
+This project is open-source and available under the MIT License.
