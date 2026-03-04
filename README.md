@@ -1,54 +1,57 @@
-📄 PDF Chat RAG Application
 
-A Retrieval-Augmented Generation (RAG) based application that allows users to upload PDF documents and interact with them through a conversational AI chatbot.
+# 📄 PDF Chat RAG Application
+
+A **Retrieval-Augmented Generation (RAG)** based application that allows users to upload PDF documents and interact with them through a conversational AI chatbot.
 
 This project extracts text from PDFs, converts it into embeddings, stores it in a vector database, and retrieves relevant content to generate accurate answers using an LLM.
 
-🚀 Features
+---
 
-📂 Upload PDF documents
+## 🚀 Features
 
-✂️ Automatic text chunking
+* 📂 Upload PDF documents
+* ✂️ Automatic text chunking
+* 🔎 Semantic search using vector embeddings
+* 🧠 Context-aware response generation
+* 💬 Interactive chat interface (Streamlit)
+* 🗂 Modular RAG pipeline structure
 
-🔎 Semantic search using vector embeddings
+---
 
-🧠 Context-aware response generation
-
-💬 Interactive chat interface (Streamlit)
-
-🗂 Modular RAG pipeline structure
-
-🏗️ Project Architecture
+## 🏗️ Project Architecture
 
 The project follows a modular RAG pipeline:
 
-Data Loader
+1. **Data Loader**
 
-Extracts text from PDF
+   * Extracts text from PDF
+   * Cleans and prepares text
 
-Cleans and prepares text
+2. **Text Splitting**
 
-Text Splitting
+   * Splits document into smaller chunks
 
-Splits document into smaller chunks
+3. **Embedding Generation**
 
-Embedding Generation
+   * Converts text chunks into vector embeddings
 
-Converts text chunks into vector embeddings
+4. **Vector Database**
 
-Vector Database
+   * Stores embeddings for fast similarity search
 
-Stores embeddings for fast similarity search
+5. **Retriever**
 
-Retriever
+   * Retrieves relevant chunks based on user query
 
-Retrieves relevant chunks based on user query
+6. **Generator (LLM)**
 
-Generator (LLM)
+   * Generates final answer using retrieved context
 
-Generates final answer using retrieved context
+---
 
-📁 Project Structure
+## 📁 Project Structure
+
+```
 Pdf_Chat_RAG_Application/
 │
 ├── app.py                          # Main Streamlit application
@@ -64,100 +67,132 @@ Pdf_Chat_RAG_Application/
 │
 ├── vector_database/                # Stored vector embeddings
 └── utils/                          # Helper functions
-⚙️ Installation & Setup
-1️⃣ Clone the repository
+```
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone the repository
+
+```bash
 git clone https://github.com/shreyasmendhekar77/Pdf_Chat_RAG_Application.git
 cd Pdf_Chat_RAG_Application
-2️⃣ Create virtual environment (Recommended)
+```
+
+### 2️⃣ Create virtual environment (Recommended)
+
+```bash
 python -m venv venv
+```
 
 Activate it:
 
-Windows
+**Windows**
 
+```bash
 venv\Scripts\activate
+```
 
-Mac/Linux
+**Mac/Linux**
 
+```bash
 source venv/bin/activate
-3️⃣ Install dependencies
+```
+
+### 3️⃣ Install dependencies
+
+```bash
 pip install -r requirements.txt
-🔑 Environment Variables
+```
 
-If your project uses OpenAI or any other LLM API, create a .env file:
+---
 
+## 🔑 Environment Variables
+
+If your project uses OpenAI or any other LLM API, create a `.env` file:
+
+```
 OPENAI_API_KEY=your_api_key_here
+```
 
 Or export manually:
 
+**Mac/Linux**
+
+```bash
 export OPENAI_API_KEY=your_api_key_here
+```
 
-(Windows PowerShell)
+**Windows PowerShell**
 
+```powershell
 setx OPENAI_API_KEY "your_api_key_here"
-▶️ Run the Application
+```
+
+---
+
+## ▶️ Run the Application
+
+```bash
 streamlit run app.py
+```
 
-Then open the local URL shown in your terminal (usually http://localhost:8501).
+Then open the local URL shown in your terminal (usually `http://localhost:8501`).
 
-🧪 How It Works
+---
 
-User uploads a PDF
+## 🧪 How It Works
 
-Text is extracted and split into chunks
+1. User uploads a PDF
+2. Text is extracted and split into chunks
+3. Chunks are converted into embeddings
+4. Embeddings are stored in a vector database
+5. User asks a question
+6. System retrieves relevant chunks
+7. LLM generates contextual answer
 
-Chunks are converted into embeddings
+---
 
-Embeddings are stored in a vector database
+## 🛠 Technologies Used
 
-User asks a question
+* Python
+* Streamlit
+* LangChain / LangGraph
+* Vector Database (FAISS or similar)
+* OpenAI / LLM API
 
-System retrieves relevant chunks
+---
 
-LLM generates contextual answer
+## 📌 Future Improvements
 
-🛠 Technologies Used
+* Multi-PDF support
+* Persistent vector storage
+* Chat history memory
+* Authentication system
+* Deployment on cloud (Streamlit Cloud / Render / AWS)
+* Docker support
 
-Python
+---
 
-Streamlit
+## 🎯 Use Cases
 
-LangChain / LangGraph
+* Research paper Q&A
+* Academic study assistant
+* Legal document analysis
+* Business report analysis
+* Personal knowledge assistant
 
-Vector Database (FAISS or similar)
+---
 
-OpenAI / LLM API
-
-📌 Future Improvements
-
-Multi-PDF support
-
-Persistent vector storage
-
-Chat history memory
-
-Authentication system
-
-Deployment on cloud (Streamlit Cloud / Render / AWS)
-
-Docker support
-
-🎯 Use Cases
-
-Research paper Q&A
-
-Academic study assistant
-
-Legal document analysis
-
-Business report analysis
-
-Personal knowledge assistant
-
-🤝 Contributing
+## 🤝 Contributing
 
 Feel free to fork this repository and submit pull requests.
 
-📜 License
+---
+
+## 📜 License
 
 This project is open-source and available under the MIT License.
+
+---
